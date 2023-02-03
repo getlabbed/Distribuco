@@ -1,0 +1,36 @@
+<!--       --- Documentation utilisée pour le projet ---
+* https://youtube.com/playlist?list=PLzMcBGfZo4-n4vJJybUVV3Un_NFS5EOgX  flask
+* https://jinja.palletsprojects.com/en/3.0.x/                           jinja2
+* https://www.w3schools.com/csS/css3_flexbox.asp                        flexbox
+*                                                                       json
+* https://www.w3schools.com/                                            html/css
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="static/circle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/462d776b32.js" crossorigin="anonymous"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/connexion">Connexion</a></li>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/login">login</a></li>
+          <li class="logo">Distribuco</li>
+        </ul>
+      </nav>
+    </header>
+      {% block content %}{% endblock %}
+    <footer>
+      <p>Distribuco par <a href="https://github.com/getlabbed">getlabbed</a> 2023</p>
+    </footer>
+  </body>
+</html>

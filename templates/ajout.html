@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Ajout d'une boisson{% endblock %}
+{% block content %}
+<script>
+    function showPercent(numero, pourcent){
+        let myDiv = document.getElementById('cercle' + numero);
+        myDiv.innerHTML = pourcent + '%'; // pourcentage du cercle
+
+        document.getElementById("percent" + numero).setAttribute("stroke-dasharray", pourcent + ", 100"); // Couleur du cercle
+    }
+
+  </script>
+<h1>Créateur de boissons</h1>
+<form class="ajout-slider-container" action="/creation-boisson" method="POST">
+    <label for="">Nom: </label>
+    <input type="text" placeholder="Nom de la boisson" name="nom"></input>
+    {% for ingredient in ingredients %}
+        <label class="ajout-slider-items" for="vol">Boisson {{ ingredient['pompe'] }}: {{ ingredient['nom'] }}</label>
+        <input class="ajout-slider-items" type="range" id="boisson" name="boisson_{{ ingredient['pompe'] }}" min="0" max="100" value="50" oninput="showPercent({{ ingredient['pompe'] }}, this.value)">
+        <div class="single-chart">
+            <svg viewBox="0 0 36 36" class="circular-chart {{ ingredient['couleur'] }}">
+            
+            <path class="circle-bg" 
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        
+            <path class="circle" id="percent{{ ingredient['pompe'] }}"
+                stroke-dasharray="25, 100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+    
+            <text id="cercle{{ ingredient['pompe'] }}" x="18" y="20.35" class="percentage">25%</text>
+            </svg>
+        </div>
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

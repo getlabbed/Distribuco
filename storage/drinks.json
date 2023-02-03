@@ -1,0 +1,6 @@
+[
+  { "name": "Boisson Bleue", "img": "boisson1.png", "link": "/boisson" },
+  { "name": "Boisson Jaune", "img": "boisson2.png", "link": "/boisson" },
+  { "name": "Boisson Rouge", "img": "boisson3.png", "link": "/boisson" },
+  { "name": "Rien", "img": "placeholder.png", "link": "/rien" }
+]

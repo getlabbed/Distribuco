@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Distribuco{% endblock %}
+{% block content %}
+<h1>La révolution des boissons viens de commencer avec DISTRIBUCO</h1>
+<div class="drink-menu-container">
+  {% for drink in drinks %}
+      <div class="drink-tile-item">
+        <a href="{{ drink['link'] }}">
+          <p>{{ drink['name'] }}</p>
+          <img src="{{ url_for('static', filename='images/' + drink['img']) }}" alt="{{ drink['name'] }}">
+        </a>
+      </div>
+  {% endfor %}
+  <div class="drink-tile-item">
+    <a href="ajout">
+      <p>Créer une boisson</p>
+      <i class="fa-solid fa-circle-plus fa-8x"></i
+    </a>
+  </div>
+</div>
+{% endblock %}

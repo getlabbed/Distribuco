@@ -1,0 +1,6 @@
+[
+  { "pompe": 1, "nom": "Eau Bleue", "couleur": "blue" },
+  { "pompe": 2, "nom": "Eau Verte", "couleur": "green" },
+  { "pompe": 3, "nom": "Eau Jaune", "couleur": "orange" },
+  { "pompe": 4, "nom": "Eau Rouge", "couleur": "red" }
+]

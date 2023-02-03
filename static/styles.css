@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box; /* inclus le padding et le border*/
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.drink-menu-container {
+    display: flex; /*Utilisation de flexbox*/
+    flex-wrap: wrap; /*Le conteneur devient adaptatif à l'espace de disponible*/
+    justify-content: center; /*Centre les objets du flexbox*/
+  }
+.drink-tile-item{
+  font-family: Montserrat;
+  text-align: center;
+}
+.drink-tile-item > a > img{ /*les enfants faisant partie de la classe*/
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+.drink-tile-item:hover{
+  border: 2px solid red;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: lightgray;
+  transition: background-color 0.5s ease;
+  
+}
+.logo{
+  float:left;
+  background-color: #04AA6D;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: large;
+}
+
+/* === Créateur de boissons ===*/
+.ajout-slider-container {
+  display: flex; /*Utilisation de flexbox*/
+  flex-direction: column;
+  align-items: center;
+}
+.ajout-slider-items {
+  width: 30%;
+}
