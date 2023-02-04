@@ -6,7 +6,7 @@ app = Flask(__name__)
 def drinkMenu():
     with open("storage/drinks.json", "r") as f:
         drinks = json.load(f)
-    return render_template('drinkMenu.html', drinks=drinks)
+    return render_template('drinkMenu.jinja', drinks=drinks)
 
 @app.route('/rien')
 def rien():
@@ -16,7 +16,7 @@ def rien():
 def ajout():
     with open("storage/ingredients.json", "r") as f:
         ingredients = json.load(f)
-    return render_template('ajout.html', ingredients=ingredients)
+    return render_template('ajout.jinja', ingredients=ingredients)
 
 @app.route('/creation-boisson', methods=['POST'])
 def creation_boisson():
