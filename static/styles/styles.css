@@ -1,9 +1,12 @@
 * {
   box-sizing: border-box; /* inclus le padding et le border*/
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
-body {
+body{
   margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
+}
+header{
+  padding: 0px;
 }
 .drink-menu-container {
     display: flex; /*Utilisation de flexbox*/

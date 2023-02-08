@@ -2,3 +2,6 @@ __pycache__
 images
 todo.txt
 venv
+archive
+.env
+google

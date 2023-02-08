@@ -1,0 +1,124 @@
+/* Conteneur du cercle */
+.circle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
+  /* Extérieur du cercle (Coloré) */
+  .outer-circle{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Intérieur du cercle (blanc) */
+  .inner-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Pourcentage du cercle */
+  .pourcentage {
+    font-size: 15px;
+    color: black;
+  }
+  .slider, .slider-total{
+    -webkit-appearance: none; /* Enlève l'apparence par défaut */
+    background: transparent;
+    outline: none;
+    opacity: 0.7;
+  }
+  .slider::-webkit-slider-thumb, .slider-total::-webkit-slider-thumb {
+    /*-webkit-appearance: none; /* Enlève l'apparence par défaut */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #3b3b3b;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  /* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+  /* Les entrées de quantité de liquide */
+  input[type="number"]{
+    width: 55px;
+    height: 32px;
+    border: 1px solid #11111152;
+    border-radius: 8px;
+  }
+  /* Positionnement du range slider */
+  input[type="range"]{
+    position: absolute;
+    width: 100%;  /* Prendre toute la place */
+    
+    /* Fix à la dure, pas trouvé d'autres solutions le problème surivent lorsq'on applique les propriétés css webkit*/
+    top:-2px;
+    left: -2px;
+  }
+  /* Conteneur flex qui contient les range sliders */
+  .slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .bar-container {
+    min-width: 40px; /* Pour ne pas avoir que le point sur le slider*/
+    width: 100%;
+    position: relative;
+    left: -10px;  
+  }
+  /* Barre Colorée */
+  .bar {
+    width: 100%;  /* Largeur par défaut */
+    height: 20px; /* Hauteur de la barre */
+    border-radius: 10px;
+  }
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .input-container > span {
+    padding-right: 10px;
+  }
+  /* Barre grise */
+  .background-bar {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    z-index: -1;  /* Mettre la barre en arrière de la barre verte */
+  }
+  /* Modification de la position du nom des boissons*/
+  .ingredient-nom{
+    color: #a7a7a7;
+    position: absolute; /* Pour le mettre ou l'on veut */
+    white-space: nowrap;
+    /* Définit l'emplacement du texte */
+    top:20px;           
+    left:70px;
+  }
+  /* Conteneur flex qui contient l'entrée du nom de la boisson */
+  .nom-container{
+    display: flex;
+    padding-bottom: 15px;    /* Afin d'ajouter un espace */
+    justify-content: center; /* Centrer le flexbox */
+  }
+  footer{
+    display: flex;
+    font-size: x-small;      /* Caractères plus petits */
+    justify-content: center; /* Centrer le flexbox */
+  }
+  input[type="submit"]{
+    margin-left: 20px;
+  }

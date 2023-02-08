@@ -1,40 +1,49 @@
 {% extends "base.jinja" %}
-{% block title %}Ajout d'une boisson{% endblock %}
+{% block title %}Distribuco{% endblock %}
 {% block content %}
-<script>
-    function showPercent(numero, pourcent){
-        let myDiv = document.getElementById('cercle' + numero);
-        myDiv.innerHTML = pourcent + '%'; // pourcentage du cercle
+  </head>
+  <body>
+    <h1>Créateur de boissons</h1>
+  <div class="nom-container">
+    <form class="ajout-slider-container" action="/creation-boisson" method="POST">
+    <span>Nom</span>
+    <input type="text" placeholder="Nom de la boisson" name="nom">
+  </div>
+      <div class="slider-container">
+      <div class="bar-container">
+        <span class = "ingredient-nom">Quantité Totale</span>
+        <input type="range" min="0" max="100" value="50" class="slider-total" name="total">
+        <div class="background-bar"></div>
+        <div class="bar" style="background-color: rebeccapurple; width: 50%;"></div>
+      </div>
+    </div>
 
-        document.getElementById("percent" + numero).setAttribute("stroke-dasharray", pourcent + ", 100"); // Couleur du cercle
-    }
-
-  </script>
-<h1>Créateur de boissons</h1>
-<form class="ajout-slider-container" action="/creation-boisson" method="POST">
-    <label for="">Nom: </label>
-    <input type="text" placeholder="Nom de la boisson" name="nom"></input>
     {% for ingredient in ingredients %}
-        <label class="ajout-slider-items" for="vol">Boisson {{ ingredient['pompe'] }}: {{ ingredient['nom'] }}</label>
-        <input class="ajout-slider-items" type="range" id="boisson" name="boisson_{{ ingredient['pompe'] }}" min="0" max="100" value="50" oninput="showPercent({{ ingredient['pompe'] }}, this.value)">
-        <div class="single-chart">
-            <svg viewBox="0 0 36 36" class="circular-chart {{ ingredient['couleur'] }}">
-            
-            <path class="circle-bg" 
-                d="M18 2.0845
-                a 15.9155 15.9155 0 0 1 0 31.831
-                a 15.9155 15.9155 0 0 1 0 -31.831"/>
-        
-            <path class="circle" id="percent{{ ingredient['pompe'] }}"
-                stroke-dasharray="25, 100"
-                d="M18 2.0845
-                a 15.9155 15.9155 0 0 1 0 31.831
-                a 15.9155 15.9155 0 0 1 0 -31.831"/>
-    
-            <text id="cercle{{ ingredient['pompe'] }}" x="18" y="20.35" class="percentage">25%</text>
-            </svg>
+    <div class="slider-container">
+      <div class="circle-container">
+        <div class="outer-circle" style="background-color: {{ingredient.couleur}}">
+          <div class="inner-circle">
+            <input type="hidden" name="pourcentage_{{ingredient.pompe}}" value="25" class="pourcentageForm">
+            <span class="pourcentage">25%</span>
+          </div>
         </div>
+        <span class = "ingredient-nom">{{ ingredient['nom'] }}</span>
+      </div>
+      <div class="bar-container">
+        <input type="range" min="0" max="100" value="25" class="slider" name="boisson_{{ingredient.pompe}}">
+        <div class="background-bar"></div>
+        <div class="bar" style="background-color: {{ingredient.couleur}}; width: 25%;"></div>
+      </div>
+      <div class="input-container">
+        <input type="number" step="any" value="25"> <!-- 'Step any' pour accepter les nombres flottants -->
+        <span>mL</span>
+        <input type="number" step="any" value="25">
+        <span>oz</span>
+      </div>
+    </div>
     {% endfor %}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Soumettre">
   </form>
+   <script>
+    </script>
 {% endblock %}

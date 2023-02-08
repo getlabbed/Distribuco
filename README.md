@@ -6,5 +6,12 @@ Projet Synthèse de programme pour [DEC en Technologies de systèmes ordinés](h
 ## Installation des prérequis
 
 ```bash
-pip install flask
-``` 
+pip install -r requirements.txt
+```
+
+## Création du fichier d'environnement .env
+
+```bash
+SECRET_KEY=
+CLIENT_ID=
+```
