@@ -1,10 +1,19 @@
 **********
 Distribuco
 **********
-.. image:: https://img.shields.io/website?down_message=hors%20ligne&label=site%20web&up_message=en%20ligne&url=https%3A%2F%2Fdistribuco.ca
-    :alt: Status du site
-.. image:: https://img.shields.io/github/license/getlabbed/Distribuco?color=blue
-    :alt: License
+
+.. raw:: html
+    <div>
+
+        <a href="https://distribuco.ca">
+        <img src="https://img.shields.io/website?down_message=hors%20ligne&label=site%20web&up_message=en%20ligne&url=https%3A%2F%2Fdistribuco.ca" alt="Status du site"/>
+        </a>
+
+        <a href="https://github.com/getlabbed/Distribuco/blob/main/LICENSE">
+        <img src="https://img.shields.io/github/license/getlabbed/Distribuco?color=blue" alt="License"/>
+        </a>
+    
+    </div>
 
 Mélangeur de boissons automatique connecté
 ==========================================
@@ -48,6 +57,6 @@ Démarre l'application web
 Application web sur le Raspberry Pi
 
 ⚙️ `raspStart.py/ <https://github.com/getlabbed/Distribuco/blob/main/raspStart.py>`_
-Démmare l'application web pour le Raspberry Pi
+Démarre l'application web pour le Raspberry Pi
 
 Documentation réalisée à l'aide de `sphinx <https://www.sphinx-doc.org/>`_
