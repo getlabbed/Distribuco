@@ -39,8 +39,8 @@ def login_is_required(function):
     return wrapper
 
 
-@auth_bp.route("/connexion") # réponse de l'authentification
-def connexion():
+@auth_bp.route("/login") # réponse de l'authentification
+def login():
     authorization_url, state = flow.authorization_url()
     session["state"] = state
     return redirect(authorization_url)
@@ -69,7 +69,7 @@ def callback():
     return redirect("/app")
 
 
-@auth_bp.route("/deconnexion")
-def deconnexion():
+@auth_bp.route("/logout")
+def logout():
     session.clear()
     return redirect("/")

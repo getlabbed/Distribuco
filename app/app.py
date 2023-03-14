@@ -5,7 +5,7 @@ app_bp = Blueprint('app', __name__)
 
 @app_bp.route('/') # Page d'accueil
 def drinkMenu():
-    return render_template('base.jinja')
+    return render_template('loginPage.jinja')
 
 @app_bp.route('/app') # Page sécurisée
 @login_is_required
