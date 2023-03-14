@@ -8,9 +8,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="static/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="static/styles/circle.css" />
-    <link rel="stylesheet" type="text/css" href="static/styles/ajout.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/circle.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/ajout.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
           <li><a href="/admin">Admin</a></li>
           <li><a href="/login">login</a></li>
           <li class="logo">Distribuco</li>
+          {% block user %}{% endblock %}
         </ul>
       </nav>
     </header>

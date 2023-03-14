@@ -9,9 +9,6 @@ Projet Synthèse de programme pour [DEC en Technologies de systèmes ordinés](h
 pip install -r requirements.txt
 ```
 
-## Création du fichier d'environnement .env
+## Fichier d'environnement
 
-```bash
-SECRET_KEY=
-CLIENT_ID=
-```
+importer le fichier d'environnement venant de google nommé «client_secret.json»
