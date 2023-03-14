@@ -5,3 +5,5 @@ venv
 archive
 .env
 google
+installation.sh
+client_secret.json
