@@ -1,4 +1,6 @@
 [
   { "pompe": 1, "nom": "Extraordinaire Eau Bleue", "couleur": "#3c9ee5" },
+  { "pompe": 2, "nom": "Super eau verte", "couleur": "#4CC790" },
+  { "pompe": 1, "nom": "Extraordinaire Eau Bleue", "couleur": "#3c9ee5" },
   { "pompe": 2, "nom": "Super eau verte", "couleur": "#4CC790" }
 ]

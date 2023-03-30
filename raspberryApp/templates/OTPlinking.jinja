@@ -1,0 +1,11 @@
+{% extends "base.jinja" %}
+{% block title %}Distribuco{% endblock %}
+{% block content %}
+<div id="otp">
+    <h1>Code OTP</h1>
+    <div id="otp-display" class="otp-token"></div>
+    <div>Temps restant: <span id="seconds-counter">59</span> secondes</div>
+    <br>
+    <a href="/"><button style="font-size: 4vw;">Retour</button></a>
+</div>  
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.jinja" %}
+{% block title %}Distribuco{% endblock %}
+{% block content %}
+<div class="drink-menu-container">
+  {% for drink in drinks %}
+      <div class="drink-tile-item">
+        <a href="{{ drink['link'] }}">
+          <p>{{ drink['name'] }}</p>
+          <img src="{{ url_for('static', filename='images/' + drink['img']) }}" alt="{{ drink['name'] }}">
+        </a>
+      </div>
+  {% endfor %}
+{% endblock %}
