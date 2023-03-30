@@ -14,14 +14,37 @@ def Secure_App():
         drinks = json.load(f)
     return render_template('drinkMenu.jinja', drinks=drinks)
 
+@app_bp.route('/link-card') # Page sécurisée
+def link_card():
+    return render_template('linkCard.jinja')
+
+@app_bp.route('/get-drinks')
+def get_drinks():
+    with open("storage/drinks.json", "r") as f:
+        drinks = json.load(f)
+    return(drinks)
+
 @app_bp.route('/ajout')
 def ajout():
+    """
+    Fonction qui permet d'accéder à la page de création des boissons
+
+    :param: Aucun(s)
+    :return: Une redirection à la de création de boissons
+    """
     with open("storage/ingredients.json", "r") as f:
         ingredients = json.load(f)
     return render_template('ajout.jinja', ingredients=ingredients)
 
 @app_bp.route('/creation-boisson', methods=['POST'])
 def creation_boisson():
+    """
+    Fonction qui permet l'envoi du formulaire pour créer une boisson
+
+    :param: Aucun(s)
+    :return: Une redirection à la page principale du site
+    """
+
     # Récupérer les données du formulaire
     nom_boisson = request.form['nom']
 
