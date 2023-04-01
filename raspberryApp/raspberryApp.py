@@ -3,6 +3,12 @@ import json
 import pyotp
 from . import socketio
 from flask_socketio import emit
+from dotenv import load_dotenv
+import os
+
+load_dotenv() # Charger le fichier d'environnement
+
+TOTP_SECRET = os.getenv("TOTP_SECRET") # Récupérer le secret TOPT
 
 raspberryApp_bp = Blueprint('app', __name__)
 
@@ -27,8 +33,8 @@ def otp_link():
 
 @raspberryApp_bp.route('/get-otp-code')
 def get_otp_code():
-    # Création d'un object topt (tTime-based One Time Password) avec un secret en base 32
-    totp = pyotp.TOTP("62NPJCTB5YOIL7435OHYSO77QLTNVVMX", interval=60)
+    # Création d'un object topt (Time-based One Time Password) avec un secret en base 32
+    totp = pyotp.TOTP(TOTP_SECRET, interval=60)
     return jsonify({"otp_code": totp.now()})
 
 @raspberryApp_bp.route('/app') # Page sécurisée

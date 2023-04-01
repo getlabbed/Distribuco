@@ -3,16 +3,16 @@
 {% block content %}
 <div id="otp">
     <h1>Lier le compte à une carte RFID</h1>
-   <form action="">
+   <form action="/verifyOTP" method="POST">
         <div>Code OTP</div>
         <div class="userInput">
             <!-- Création des input pour le TOPT, longueur maximum de 1, puis on exécute les scripts qui iront changer le champs sélectionné -->
-            <input type="text" id='totp1' maxlength="1" onkeyup="clickEvent(this, 'totp2')" onkeydown="checkEmpty(this, 'totp1', event)" oninput="validateNumericInput(this)">
-            <input type="text" id="totp2" maxlength="1" onkeyup="clickEvent(this, 'totp3')" onkeydown="checkEmpty(this, 'totp1', event)" oninput="validateNumericInput(this)">
-            <input type="text" id="totp3" maxlength="1" onkeyup="clickEvent(this, 'totp4')" onkeydown="checkEmpty(this, 'totp2', event)" oninput="validateNumericInput(this)">
-            <input type="text" id="totp4" maxlength="1" onkeyup="clickEvent(this, 'totp5')" onkeydown="checkEmpty(this, 'totp3', event)" oninput="validateNumericInput(this)">
-            <input type="text" id="totp5" maxlength="1" onkeyup="clickEvent(this, 'totp6')" onkeydown="checkEmpty(this, 'totp4', event)" oninput="validateNumericInput(this)">
-            <input type="text" id="totp6" maxlength="1" onkeyup="clickEvent(this, 'soumettre')" onkeydown="checkEmpty(this, 'totp5', event)">
+            <input type="text" name="totp1" id='totp1' maxlength="1" onkeyup="clickEvent(this, 'totp2')" onkeydown="checkEmpty(this, 'totp1', event)" oninput="validateNumericInput(this)">
+            <input type="text" name="totp2" id="totp2" maxlength="1" onkeyup="clickEvent(this, 'totp3')" onkeydown="checkEmpty(this, 'totp1', event)" oninput="validateNumericInput(this)">
+            <input type="text" name="totp3" id="totp3" maxlength="1" onkeyup="clickEvent(this, 'totp4')" onkeydown="checkEmpty(this, 'totp2', event)" oninput="validateNumericInput(this)">
+            <input type="text" name="totp4" id="totp4" maxlength="1" onkeyup="clickEvent(this, 'totp5')" onkeydown="checkEmpty(this, 'totp3', event)" oninput="validateNumericInput(this)">
+            <input type="text" name="totp5" id="totp5" maxlength="1" onkeyup="clickEvent(this, 'totp6')" onkeydown="checkEmpty(this, 'totp4', event)" oninput="validateNumericInput(this)">
+            <input type="text" name="totp6" id="totp6" maxlength="1" onkeyup="clickEvent(this, 'soumettre')" onkeydown="checkEmpty(this, 'totp5', event)">
         </div>
    </form>
 </div>  

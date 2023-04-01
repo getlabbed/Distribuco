@@ -2,6 +2,13 @@ from flask import render_template, request, redirect, Blueprint
 from app.auth import login_is_required
 import json
 app_bp = Blueprint('app', __name__)
+import pyotp
+from dotenv import load_dotenv
+import os
+
+load_dotenv() # Charger le fichier d'environnement
+
+TOTP_SECRET = os.getenv("TOTP_SECRET") # Récupérer le secret TOPT
 
 @app_bp.route('/') # Page d'accueil
 def drinkMenu():
@@ -14,7 +21,7 @@ def drinkMenu():
     return render_template('loginPage.jinja')
 
 @app_bp.route('/app') # Page sécurisée
-@login_is_required
+#DEV @login_is_required
 def Secure_App():
     """
     Fonction qui permet d'accéder à la page principale sécurisée (avec authentification) du site
@@ -27,16 +34,46 @@ def Secure_App():
         drinks = json.load(f)
     return render_template('drinkMenu.jinja', drinks=drinks)
 
+#DEV @login_is_required
 @app_bp.route('/link-card') # Page sécurisée
 def link_card():
     return render_template('linkCard.jinja')
 
+#DEV @login_is_required
+@app_bp.route('/verifyOTP', methods=['POST']) # Page sécurisée
+def verifyOTP():
+    # Récupérer les numéros totp
+    totp1 = request.form['totp1']
+    totp2 = request.form['totp2']
+    totp3 = request.form['totp3']
+    totp4 = request.form['totp4']
+    totp5 = request.form['totp5']
+    totp6 = request.form['totp6']
+
+    # Création d'un object topt (Time-based One Time Password) avec un secret en base 32
+    totp = pyotp.TOTP(TOTP_SECRET, interval=60)
+
+    # Concaténer les numéro totp en un seul
+    user_totp = totp1 + totp2 + totp3 + totp4 + totp5 + totp6
+
+    # Valider le code totp
+    totp_validation = totp.verify(user_totp)
+
+    if totp_validation:
+        pass # Envoyer une requête socketIO pour réccupérer le numéro de carte RFID
+    else:
+        pass # Ne rien faire
+
+    return redirect('/app') # retourner à la page principale
+
+#DEV @login_is_required
 @app_bp.route('/get-drinks')
 def get_drinks():
     with open("storage/drinks.json", "r") as f:
         drinks = json.load(f)
     return(drinks)
 
+#DEV @login_is_required
 @app_bp.route('/ajout')
 def ajout():
     """
@@ -49,6 +86,7 @@ def ajout():
         ingredients = json.load(f)
     return render_template('ajout.jinja', ingredients=ingredients)
 
+#DEV @login_is_required
 @app_bp.route('/creation-boisson', methods=['POST'])
 def creation_boisson():
     """

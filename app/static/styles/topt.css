@@ -11,3 +11,7 @@
     box-shadow: none;  
     font-size: 5rem;
 }
+/* Changement de couleur de l'élément sélectionné */
+.userInput input:focus {
+    opacity: 0.5;
+  }
