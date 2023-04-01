@@ -71,7 +71,7 @@
     margin-right: 20px;
   }
   .bar-container {
-    min-width: 40px; /* Pour ne pas avoir que le point sur le slider*/
+    min-width: 120px; /* Pour garder une belle apparence, même si l'application est au minimisé au maximum*/
     width: 100%;
     position: relative;
     left: -10px;  
@@ -114,6 +114,17 @@
     padding-bottom: 15px;    /* Afin d'ajouter un espace */
     justify-content: center; /* Centrer le flexbox */
   }
+  /* Emplacement spécifique pour le nom de la barre totale */
+  #total-nom{
+    top:-20px;           
+    left:0px;
+  }
+  /* Modification du conteneur du slider total, pour être plus légèrement comprimé */
+  #total-container{
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  /* Indication en bas de page */
   footer{
     display: flex;
     font-size: x-small;      /* Caractères plus petits */
@@ -121,4 +132,24 @@
   }
   input[type="submit"]{
     margin-left: 20px;
+  }
+  /* Affichage des quantités de liquides */
+  .displayQty{
+    all:unset;
+    border: 2px solid #a7a7a7;
+    border-radius: 4px;
+    width: 60px;
+    margin-right: 3px;
+  }
+  .displayTotal{
+    all:unset;
+    border: 3px solid rebeccapurple;
+    border-radius: 4px;
+    width: 80px;
+    margin-right: 3px;
+    font-size: x-large;
+  }
+  .spanTotal{
+    margin-right: 3px;
+    font-size: large;
   }
