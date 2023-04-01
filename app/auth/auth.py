@@ -6,12 +6,11 @@ import os
 import pathlib
 import json
 import requests
-from flask import session, abort, redirect, request, render_template, Blueprint
+from flask import session, abort, redirect, request, Blueprint
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
-from dotenv import load_dotenv
 
 auth_bp = Blueprint('auth', __name__) # Compartimentalisation de l'application
 

@@ -5,11 +5,24 @@ app_bp = Blueprint('app', __name__)
 
 @app_bp.route('/') # Page d'accueil
 def drinkMenu():
+    """
+    Fonction qui permet d'accéder à la page de connexion du site distribuco
+
+    :param: Aucun(s)
+    :return: Une redirection vers la page de connexion
+    """
     return render_template('loginPage.jinja')
 
 @app_bp.route('/app') # Page sécurisée
 @login_is_required
 def Secure_App():
+    """
+    Fonction qui permet d'accéder à la page principale sécurisée (avec authentification) du site
+    Elle utilise le décorateur @login_is_required qui permet de ne laisser que les personnes authentifé d'accéder à la page web
+    
+    :param: Aucun(s)
+    :return: Une redirection vers la page de création des boissons
+    """
     with open("storage/drinks.json", "r") as f:
         drinks = json.load(f)
     return render_template('drinkMenu.jinja', drinks=drinks)
@@ -30,7 +43,7 @@ def ajout():
     Fonction qui permet d'accéder à la page de création des boissons
 
     :param: Aucun(s)
-    :return: Une redirection à la de création de boissons
+    :return: Une redirection vers la page de création des boissons
     """
     with open("storage/ingredients.json", "r") as f:
         ingredients = json.load(f)
@@ -42,7 +55,7 @@ def creation_boisson():
     Fonction qui permet l'envoi du formulaire pour créer une boisson
 
     :param: Aucun(s)
-    :return: Une redirection à la page principale du site
+    :return: Une redirection vers la page principale (sécurisée) du site
     """
 
     # Récupérer les données du formulaire
