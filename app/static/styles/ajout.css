@@ -58,7 +58,7 @@
     width: 100%;  /* Prendre toute la place */
     
     /* Fix à la dure, pas trouvé d'autres solutions le problème surivent lorsq'on applique les propriétés css webkit*/
-    top:-2px;
+    top: -2px;
     left: -2px;
   }
   /* Conteneur flex qui contient les range sliders */

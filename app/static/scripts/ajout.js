@@ -37,9 +37,14 @@ function ajout() {
     totalVolume = total.value * maxVolume / 100;
     const totalBar = total.nextElementSibling.nextElementSibling;
     const totalSliderWidth = total.offsetWidth;
-    const knobPosition = (total.value / 100 * (totalSliderWidth - 20)) + 20;
-    totalBar.style.width = `${knobPosition}px`;
-    console.log(total.value, knobPosition);
+    const knobPosition = (total.value / 100 * (totalSliderWidth - 20)) + 20; // le knob à un diamètre de 20 px
+
+    // Position en px converti en %, ce qui fait en sorte que lorsqu'on change l'écran de résolution, la barre garde le pourcentage donné
+    // Cela ne règle pas le problème parfaitement, puisque le pourcentage est différent selon la largeur de l'affichage
+    const totalPercent = (knobPosition / totalSliderWidth) * 100;
+
+    totalBar.style.width = `${totalPercent}%`;
+    console.log(total.value, knobPosition, totalPercent);
     updatePercentages();
   });
 }
