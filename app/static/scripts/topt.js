@@ -17,12 +17,21 @@ function checkEmpty(current, previous, event){
     }
 }
 
-// Viens metttre en sélection le premier chiffre pour le TOPT
-window.onload = function() {
-    document.getElementById("totp1").focus();
-  };
-
 // Fonction qui préviens l'utilisateur de mettre des caratères autre que des chiffres
 function validateNumericInput(input) {
 input.value = input.value.replace(/[^\d]/g, ''); // utilisation d'un regex
 }
+
+// Exécuter le code quand la page est chargée
+document.addEventListener('DOMContentLoaded', function() {
+    // Viens metttre en sélection le premier chiffre pour le TOPT
+    window.onload = function() {
+        document.getElementById("totp1").focus();
+    };
+});
+
+// Événements Swup https://swup.js.org/events
+// Exécuter le code quand la page est chargée par Swup 
+document.addEventListener('swup:contentReplaced', function() {
+    document.getElementById("totp1").focus();
+});

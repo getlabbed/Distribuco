@@ -19,20 +19,22 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li class="logo">Distribuco</li>
-          {% block nav %}{% endblock %}
-        </ul>
-      </nav>
-    </header>
-    <main id="swup" class="transition-fade">
-      {% block content %}{% endblock %}
-    </main>
-    <footer>
-      <p>Distribuco par <a href="https://github.com/getlabbed">Yanick Labelle</a> 2023</p>
-    </footer>
+    <div id="swup"> <!-- Conteneur mis à jour par Swup -->
+      <header>
+        <nav>
+          <ul>
+            <li class="logo">Distribuco</li>
+            {% block nav %}{% endblock %}
+          </ul>
+        </nav>
+      </header>
+      <main class="transition-fade">
+        {% block content %}{% endblock %}
+      </main>
+      <footer>
+        <p>Distribuco par <a href="https://github.com/getlabbed">Yanick Labelle</a> 2023</p>
+      </footer>
+    </div>
     <script src="/static/scripts/ajout.js"></script>
     <script src="/static/scripts/topt.js"></script>
     <script src="https://kit.fontawesome.com/462d776b32.js" crossorigin="anonymous"></script>
