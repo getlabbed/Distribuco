@@ -1,0 +1,13 @@
+.userInput{
+    display:flex;
+    justify-content: space-between;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.userInput input{  
+    height: 30%;
+    width: 30%;
+    background-color: #04AA6D;
+    box-shadow: none;  
+    font-size: 5rem;
+}

@@ -9,8 +9,9 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/static/styles/styles.css" />
-    <link rel="stylesheet" type="text/css" href="/static/styles/circle.css" />
     <link rel="stylesheet" type="text/css" href="/static/styles/ajout.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/topt.css" />
+    <link rel="stylesheet" type="text/css" href="/static/styles/PageAnimation.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
@@ -26,12 +27,16 @@
         </ul>
       </nav>
     </header>
+    <main id="swup" class="transition-fade">
       {% block content %}{% endblock %}
+    </main>
     <footer>
       <p>Distribuco par <a href="https://github.com/getlabbed">Yanick Labelle</a> 2023</p>
     </footer>
     <script src="/static/scripts/ajout.js"></script>
     <script src="/static/scripts/topt.js"></script>
     <script src="https://kit.fontawesome.com/462d776b32.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swup@3.0.5/dist/Swup.umd.js" crossorigin="anonymous"></script>
+    <script src="/static/scripts/PageAnimation.js"></script>
   </body>
 </html>

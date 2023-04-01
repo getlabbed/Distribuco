@@ -9,8 +9,8 @@ header{
   padding: 0px;
 }
 .drink-menu-container {
-    display: flex; /*Utilisation de flexbox*/
-    flex-wrap: wrap; /*Le conteneur devient adaptatif à l'espace de disponible*/
+    display: flex;           /*Utilisation de flexbox*/
+    flex-wrap: wrap;         /*Le conteneur devient adaptatif à l'espace de disponible*/
     justify-content: center; /*Centre les objets du flexbox*/
   }
 .drink-tile-item{

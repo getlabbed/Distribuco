@@ -1,0 +1,11 @@
+/* https://swup.js.org/ */
+
+html.is-animating .transition-fade {
+    opacity: 0; /* État par défaut lors du **loading** de la page*/
+}
+
+/* Transition entre les pages html */
+.transition-fade {
+    transition: 0.5s;
+    opacity: 1;
+  }
