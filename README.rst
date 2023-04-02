@@ -41,6 +41,7 @@ Fichier d'environnement
 
 importer le fichier d'environnement venant de google nommé «client_secret.json»
 
+Exécuter le script GenerateSecretKey.py afin de générer un secret TOPT dans un fichier .env
 
 Organisation du projet
 ======================

@@ -1,6 +1,7 @@
-# Code copié et modifié d'ici:
-# 
-# https://github.com/code-specialist/flask_google_login
+"""
+    Code copié et modifié d'ici:
+    https://github.com/code-specialist/flask_google_login
+"""
 
 import os
 import pathlib

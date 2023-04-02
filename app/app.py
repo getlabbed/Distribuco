@@ -40,6 +40,13 @@ def link_card():
     return render_template('linkCard.jinja')
 
 #DEV @login_is_required
+@app_bp.route('/admin-menu') # Page sécurisée
+def admin_menu():
+    with open("storage/ingredients.json", "r") as f:
+        ingredients = json.load(f)
+    return render_template('adminMenu.jinja', ingredients=ingredients)
+
+#DEV @login_is_required
 @app_bp.route('/verifyOTP', methods=['POST']) # Page sécurisée
 def verifyOTP():
     # Récupérer les numéros totp

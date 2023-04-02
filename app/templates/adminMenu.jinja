@@ -1,0 +1,36 @@
+{% extends "base.jinja" %}
+{% block title %}Menu de configuration Distribuco{% endblock %}
+{% block nav %}
+  <li><a href="/logout">Déconnexion</a></li>
+{% endblock %}
+{% block content %}
+<h1>Menu de configuration de la machine Distribuco</h1>
+<form action="/admin-update" method="POST">  
+    <div class="drink-available-container">
+        <!-- Parce qu'il n'y a que 4 pompes disponibles -->
+        {% for i in range(4) %} 
+            <div class="drink-available-item">     
+                {% if i < ingredients|length %}
+                    <span>Pompe</span>
+                    <input type="number" readonly value="{{ i }}">
+                    <span>Nom</span>
+                    <input type="text" value="{{ ingredients[i].nom }}">
+                    <span>Couleur</span>
+                    <input type="text" value="{{ ingredients[i].couleur }}" class="color">
+                {% else %}
+                    <span>Pompe</span>
+                    <!-- Pas le temps d'implémenter un gros système de configuration -->
+                    <!-- L'admin a donc la possibilite de modifier les ingredients -->
+                    <!-- Mais s'il change les ingrédients, les anciennes recettes, ne fonctionneront plus -->
+                    <input type="number" readonly value="{{ i }}">
+                    <span>Nom</span>
+                    <input type="text" value="">
+                    <span>Couleur</span>
+                    <input type="text" value="" class="color">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <input type="submit" value="Soumettre">  
+</form>
+{% endblock %}
