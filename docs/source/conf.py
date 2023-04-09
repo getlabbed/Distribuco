@@ -6,14 +6,17 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-
+# Documentation pour la documentation du code source
+# https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html
 
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../..'))
 
+# importer les modules à documenter
 from app import *
+from raspberryApp import *
 
 project = 'Distribuco'
 copyright = '2023, Yanick Labelle'
@@ -42,3 +45,7 @@ language = 'fr'
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+# Permet d'enlever une erreur de compilation de la documentation
+# Puisque ce module ne peut pas être importé ailleurs que sur un Raspberry Pi
+autodoc_mock_imports = ["RPi"] # https://stackoverflow.com/a/56918885

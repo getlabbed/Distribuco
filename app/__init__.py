@@ -9,7 +9,7 @@ from .auth.auth import auth_bp
 from .auth.auth import client_secrets_file
 import json
 
-# Importation à fin de documentation
+# Importation pour la documentation Sphinx
 from .app import *
 
 def create_app():

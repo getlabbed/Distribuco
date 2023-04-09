@@ -4,6 +4,9 @@ from flask_socketio import SocketIO
 
 socketio = SocketIO()
 
+# Importation pour la documentation Sphinx
+from .raspberryApp import *
+
 def create_app():
     """
     Créé l'instance de l'application distribuco pour Raspberry Pi

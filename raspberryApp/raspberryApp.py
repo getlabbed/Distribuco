@@ -18,6 +18,11 @@ def rfid_socketio():
     RFID = "123456"
     return {'status': 'success', 'message': RFID}
 
+@raspberryApp_bp.route('/pumps') # Communication SocketIO
+def pumps():
+    socketio.emit('start_pump', {'pump_amounts': [50, 100, 150, 200], 'pump_ids': [1, 2, 3, 4]})
+    return redirect('/') # retourner à la page principale
+
 @socketio.on('rfid_code') # Réception des données RFID via socketIO
 def handle_rfid_data(data):
     print(f'Valeur RFID: {data}')
