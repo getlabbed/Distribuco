@@ -19,11 +19,11 @@ Ce template jinja est permet de créé une boisson selon les goûts de l'utilisa
       <div id="total-container" class="slider-container">
       <div class="bar-container">
         <span id="total-nom" class="ingredient-nom">Quantité Totale</span>
-        <input type="range" min="0" max="100" value="50" class="slider-total" name="total">
+        <input type="range" min="0" max="100" value="50" class="slider-total">
         <div class="background-bar"></div>
         <div class="bar" style="background-color: rebeccapurple; width: 50%;"></div>
       </div>
-      <input class="displayTotal" readonly type="text" step="any" value="25"> <!-- 'Step any' pour accepter les nombres flottants -->
+      <input name="total" class="displayTotal" readonly type="text" step="any" value="25"> <!-- 'Step any' pour accepter les nombres flottants -->
       <span class="spanTotal">mL</span>
       <input class="displayTotal" readonly type="text" step="any" value="25">
       <span class="spanTotal">oz</span>
@@ -34,21 +34,21 @@ Ce template jinja est permet de créé une boisson selon les goûts de l'utilisa
       <div class="circle-container">
         <div class="outer-circle" style="background-color: {{ingredient.couleur}}">
           <div class="inner-circle">
-            <input type="hidden" name="pourcentage_{{ingredient.pompe}}" value="25" class="pourcentageForm">
+            <input type="hidden" id="pourcentage_{{ingredient.pompe}}" value="25" class="pourcentageForm">
             <span class="pourcentage">25%</span>
           </div>
         </div>
         <span class = "ingredient-nom">{{ ingredient['nom'] }}</span>
       </div>
       <div class="bar-container">
-        <input type="range" min="0" max="100" value="25" class="slider" name="boisson_{{ingredient.pompe}}">
+        <input type="range" min="0" max="100" value="25" class="slider" id="boisson_{{ingredient.pompe}}">
         <div class="background-bar"></div>
         <div class="bar" style="background-color: {{ingredient.couleur}}; width: 25%;"></div>
       </div>
       <div class="input-container">
         <!-- La raison de l'utilisation des inputs, c'est que ainsi nous pouvons garder le nombre à une position fixe dans l'axe horizontal -->
         <!-- Ainsi que d'avoir une belle petite boite autour, de plus le code pourrait être amélioré afin que l'utilisateur change lui même la quantité -->
-        <input class="displayQty" readonly type="text" step="any" value="25">
+        <input name="boisson_ml_{{ingredient.pompe}}" class="displayQty" readonly type="text" step="any" value="25">
         <span>mL</span>
         <input class="displayQty" readonly type="text" step="any" value="25">
         <span>oz</span>

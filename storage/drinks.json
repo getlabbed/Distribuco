@@ -2,23 +2,11 @@
   {
     "name": "Sublime Eau bleue",
     "drink": {
-      "volumeTotal": "100",
-      "boisson1": "100",
-      "boisson2": "0",
-      "boisson3": "0",
-      "boisson4": "0"
-    },
-    "img": "placeholder.png",
-    "link": "/boisson"
-  },
-  {
-    "name": "Extraordinaire Eau Mauve",
-    "drink": {
-      "volumeTotal": "100",
-      "boisson1": "100",
-      "boisson2": "100",
-      "boisson3": "0",
-      "boisson4": "0"
+      "volumeTotal": "0",
+      "boisson_ml_1": "0",
+      "boisson_ml_2": "0",
+      "boisson_ml_3": "0",
+      "boisson_ml_4": "0"
     },
     "img": "placeholder.png",
     "link": "/boisson"
