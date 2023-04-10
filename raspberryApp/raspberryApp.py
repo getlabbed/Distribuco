@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, Blueprint, jsonify
+import requests
 import json
 import pyotp
 from . import socketio
@@ -12,15 +13,27 @@ TOTP_SECRET = os.getenv("TOTP_SECRET") # Récupérer le secret TOPT
 
 raspberryApp_bp = Blueprint('app', __name__)
 
+def str_round(input):
+    float_input = float(input)
+    output = round(float_input)
+    return output
+
 @raspberryApp_bp.route('/rfid_socketio') # Communication SocketIO
 def rfid_socketio():
     # Envoyer la valeur RFID
     RFID = "123456"
     return {'status': 'success', 'message': RFID}
 
-@raspberryApp_bp.route('/pumps') # Communication SocketIO
+@raspberryApp_bp.route('/pumps', methods=['POST']) # Communication SocketIO
 def pumps():
-    socketio.emit('start_pump', {'pump_amounts': [50, 100, 150, 200], 'pump_ids': [1, 2, 3, 4]})
+    
+    # Quantite de liquide pour chaque pompe
+    pump_1 = str_round(request.form['pump-1'])
+    pump_2 = str_round(request.form['pump-2'])
+    pump_3 = str_round(request.form['pump-3'])
+    pump_4 = str_round(request.form['pump-4'])
+
+    socketio.emit('start_pump', {'pump_amounts': [pump_1, pump_2, pump_3, pump_4], 'pump_ids': [1, 2, 3, 4]})
     return redirect('/') # retourner à la page principale
 
 @socketio.on('rfid_code') # Réception des données RFID via socketIO
@@ -42,10 +55,10 @@ def get_otp_code():
     totp = pyotp.TOTP(TOTP_SECRET, interval=60)
     return jsonify({"otp_code": totp.now()})
 
-@raspberryApp_bp.route('/app') # Page sécurisée
+@raspberryApp_bp.route('/app')
 def Secure_App():
-    with open("storage/drinks.json", "r") as f:
-        drinks = json.load(f)
+    response = requests.get('https://distribuco.ca/get-drinks')
+    drinks = response.json()
     return render_template('drinkMenu.jinja', drinks=drinks)
 
 @raspberryApp_bp.route('/ajout') # Page de création des boissons

@@ -3,11 +3,19 @@
 {% block content %}
 <div class="drink-menu-container">
   {% for drink in drinks %}
+    <form id="pump-{{ loop.index }}" action="/pumps" method="POST">
+      <input type="hidden" name="total" value="{{ drink.drink.volumeTotal }}">
+      <input type="hidden" name="pump-1" value="{{ drink.drink.boisson_ml_1 }}">
+      <input type="hidden" name="pump-2" value="{{ drink.drink.boisson_ml_2 }}">
+      <input type="hidden" name="pump-3" value="{{ drink.drink.boisson_ml_3 }}">
+      <input type="hidden" name="pump-4" value="{{ drink.drink.boisson_ml_4 }}">
       <div class="drink-tile-item">
         <a href="{{ drink['link'] }}">
-          <p>{{ drink['name'] }}</p>
+          <p>{{ drink['name'] }} [{{ (loop.index - 1) % 3 + 1 }}]</p> <!-- Modulo 3 pour avoir un maximum de 3-->
           <img src="{{ url_for('static', filename='images/' + drink['img']) }}" alt="{{ drink['name'] }}">
         </a>
       </div>
+      <input type="submit" value="Soumettre">
+    </form>
   {% endfor %}
 {% endblock %}
