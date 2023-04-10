@@ -8,6 +8,8 @@ PUMP_PINS = [[20, 21], [16, 12], [8, 25], [24, 23]]  # Pompe 1, Pompe 2, Pompe 3
 PRESSURE_SENSOR_PIN = 7
 FLOW_RATE = 400  # 400 ml/min
 
+pump_flag = True
+
 def init():
     print("Initialisation des pins")
     gpio.setmode(gpio.BCM)
@@ -17,7 +19,6 @@ def init():
     gpio.setup(PRESSURE_SENSOR_PIN, gpio.IN)
 
 def start_pump(pump_id):
-    print(f"Démarrage de la pompe {pump_id + 1}")
     gpio.output(PUMP_PINS[pump_id][0], False)
     gpio.output(PUMP_PINS[pump_id][1], True)
 
@@ -45,7 +46,6 @@ def pump_liquid(pump_id, ml_to_pump):
     :param ml_to_pump: Quantité de liquide à pomper (ml)
     :return: Rien
     """
-    print(f"Pompe {pump_id + 1} en cours")
     flow_rate_seconds = FLOW_RATE / 60  # ml/s
     pumping_time = ml_to_pump / flow_rate_seconds
     start_time = time.time()
@@ -57,8 +57,6 @@ def pump_liquid(pump_id, ml_to_pump):
     stop_pump(pump_id)
     print(f"Pompe {pump_id + 1} arrêtée")
 
-init()
-
 def pumping_thread(pump_amounts):
     """
     Fonction qui gère les thread de pompage des liquides
@@ -66,9 +64,13 @@ def pumping_thread(pump_amounts):
     :param pump_amounts: Liste des quantités de liquide à pomper (ml)
     :return: Rien
     """
+    init() # Super important !!!
+    pump_complete = False
+    global pump_flag
     try:
         while not pump_complete:
             if pressure_sensor_triggered() and pump_flag:
+                print("Pression détectée")
             
                 # Commencer à pomper
                 pump_flag = False
@@ -94,11 +96,13 @@ def pumping_thread(pump_amounts):
         for i in range(len(PUMP_PINS)):
             stop_pump(i)
         gpio.cleanup()
+        pump_complete = False
 
 # Fonction qui est appelée lorsque le serveur socketIO envoie un évènement 'start_pump'
 @sio.on('start_pump')
 def start_pumpssssss(data):
     global pump_flag
+    pump_flag = True
     print("socketIO: start_pump")
     pump_amounts = data['pump_amounts']
     hardware_thread = Thread(target=pumping_thread, args=(pump_amounts,))
