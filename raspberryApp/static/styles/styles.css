@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box; /* inclus le padding et le border */
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+body{
+  margin: 0;
+}
+header{
+  padding: 0px;
+}
+.drink-menu-container {
+    display: flex;           /* Utilisation de flexbox */
+    flex-wrap: wrap;         /* Le conteneur devient adaptatif à l'espace de disponible */
+    justify-content: center; /* Centre les objets du flexbox*/
+    flex-direction: row;
+    max-width: 500px;        /* Limiter les blocs de 3 boissons dans une seule rangée */
+    margin: auto;            /* Centre le conteneur dans le millieu de la page */
+  }
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+.drink-tile-item{
+  font-family: Montserrat;
+  text-align: center;
+}
+.drink-tile-item > a > img{ /* les enfants faisant partie de la classe */
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+.selected{
+  border: 2px solid green;
+  font-weight: bold;
+  border-radius: 10px;  
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: lightgray;
+  transition: background-color 0.5s ease;
+  
+}
+.logo{
+  float:left;
+  background-color: #04AA6D;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: large;
+}
+
+/* === Créateur de boissons ===*/
+.ajout-slider-container {
+  display: flex; /* Utilisation de flexbox */
+  flex-direction: column;
+  align-items: center;
+}
+.ajout-slider-items {
+  width: 30%;
+}
