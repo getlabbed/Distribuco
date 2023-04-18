@@ -60,8 +60,10 @@ def verifyOTP():
     # Création d'un object topt (Time-based One Time Password) avec un secret en base 32
     totp = pyotp.TOTP(TOTP_SECRET, interval=60)
 
-    # Concaténer les numéro totp en un seul
+    # Concaténer les numéros totp en un seul
     user_totp = totp1 + totp2 + totp3 + totp4 + totp5 + totp6
+
+    print(user_totp, TOTP_SECRET)
 
     # Valider le code totp
     totp_validation = totp.verify(user_totp)
@@ -69,7 +71,7 @@ def verifyOTP():
     if totp_validation:
         pass # Envoyer une requête socketIO pour réccupérer le numéro de carte RFID
     else:
-        pass # Ne rien faire
+        print("Erreur de validation OTP")
 
     return redirect('/app') # retourner à la page principale
 
@@ -114,6 +116,8 @@ def creation_boisson():
 
     volumeTotal = request.form['total']
 
+    couleur = request.form['couleur']
+
     # Récupérer les données du JSON
     with open('storage/drinks.json', 'r') as f:
         data = json.load(f)
@@ -128,8 +132,7 @@ def creation_boisson():
             "boisson_ml_3": boisson_ml_3,
             "boisson_ml_4": boisson_ml_4,
         },
-        "img": "placeholder.png",
-        "link": "/boisson"
+        "couleur": couleur
     }
     data.append(new_data)
 

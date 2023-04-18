@@ -1,14 +1,1 @@
-[
-  {
-    "name": "Sublime Eau bleue",
-    "drink": {
-      "volumeTotal": "0",
-      "boisson_ml_1": "0",
-      "boisson_ml_2": "0",
-      "boisson_ml_3": "0",
-      "boisson_ml_4": "0"
-    },
-    "img": "placeholder.png",
-    "link": "/boisson"
-  }
-]
+[{"name": "Sublime Eau bleue", "drink": {"volumeTotal": "0", "boisson_ml_1": "0", "boisson_ml_2": "0", "boisson_ml_3": "0", "boisson_ml_4": "0"}, "couleur": "#3c9ee5"}, {"name": "", "drink": {"volumeTotal": "25", "boisson_ml_1": "25", "boisson_ml_2": "25", "boisson_ml_3": "25", "boisson_ml_4": "25"}, "couleur": ""}, {"name": "r4r4r4r4", "drink": {"volumeTotal": "25", "boisson_ml_1": "129.36", "boisson_ml_2": "75.21", "boisson_ml_3": "75.21", "boisson_ml_4": "75.21"}, "couleur": "#632626"}]
