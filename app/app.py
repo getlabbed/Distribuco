@@ -1,3 +1,7 @@
+"""
+Code principal de l'application web Distribuco qui permet de gérer les requêtes et de les traiter
+"""
+
 from flask import render_template, request, redirect, Blueprint
 from app.auth import login_is_required
 import json
@@ -22,7 +26,7 @@ def drinkMenu():
     return render_template('loginPage.jinja')
 
 @app_bp.route('/app') # Page sécurisée
-#DEV @login_is_required
+@login_is_required
 def Secure_App():
     """
     Fonction qui permet d'accéder à la page principale sécurisée (avec authentification) du site
@@ -35,19 +39,19 @@ def Secure_App():
         drinks = json.load(f)
     return render_template('drinkMenu.jinja', drinks=drinks)
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/link-card') # Page sécurisée
 def link_card():
     return render_template('linkCard.jinja')
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/admin-menu') # Page sécurisée
 def admin_menu():
     with open("storage/ingredients.json", "r") as f:
         ingredients = json.load(f)
     return render_template('adminMenu.jinja', ingredients=ingredients)
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/delete_drink/<drink_index>', methods=['POST']) # Page sécurisée
 def deleteDrink(drink_index):
     with open("storage/drinks.json", "r") as f:
@@ -60,7 +64,6 @@ def deleteDrink(drink_index):
 
     return redirect('/app') # retourner à la page principale
 
-# DAMN
 def get_json_drinks(card_id=None, google_id=None):
     with open('storage/profiles.json') as f:
         profiles = json.load(f)
@@ -73,7 +76,7 @@ def get_json_drinks(card_id=None, google_id=None):
 
     return None
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/card_id/<card_id>', methods=['GET']) # Page sécurisée
 def storeCardId(card_id):
     with open("storage/profiles.json", "r") as f:
@@ -86,7 +89,7 @@ def storeCardId(card_id):
 
     return "SUCESS"
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/verifyOTP', methods=['POST']) # Page sécurisée
 def verifyOTP():
     # Récupérer les numéros totp
@@ -125,12 +128,12 @@ def verifyOTP():
 
     return redirect('/app') # retourner à la page principale
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/get-drinks/<card_id>', methods=['GET'])
 def get_drinks(card_id):
     return(get_json_drinks(card_id, None))
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/ajout')
 def ajout():
     """
@@ -143,7 +146,7 @@ def ajout():
         ingredients = json.load(f)
     return render_template('ajout.jinja', ingredients=ingredients)
 
-#DEV @login_is_required
+@login_is_required
 @app_bp.route('/creation-boisson', methods=['POST'])
 def creation_boisson():
     """

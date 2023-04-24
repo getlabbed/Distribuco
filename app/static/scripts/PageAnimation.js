@@ -1,4 +1,4 @@
-// https://swup.js.org/
+// Documentation: https://swup.js.org/
 
 // Initialisation de la bibliothèque Swup, qui permet de faire des animations entre les pages html
 const swup = new Swup({

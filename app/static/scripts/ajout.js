@@ -1,4 +1,12 @@
+/*
+ * Code qui permet de mettre à jour les pourcentages et les quantités de liquides pour le menu d'ajout d'une boisson
+ * Code fait avec l'aide de chatGPT, pour mieux comprendre les « EventListeners »
+ */
+
 function ajout() {
+  /*
+  Fonction qui englobe tout le code, pour que celui-ci soit exécuté à chaque fois que la page est chargée par Swup
+  */
   const sliders = document.querySelectorAll('.slider');
   const cercles = document.querySelectorAll('.pourcentage');
   const cerclesForm = document.querySelectorAll('.pourcentageForm')
@@ -47,8 +55,8 @@ function ajout() {
     totalBar.style.width = `${totalPercent}%`;
 
     displayTotal.forEach((display, index) => {
-      displayTotal[index * 2].value = totalVolume.toFixed(2);                 // (ml)
-      displayTotal[index * 2 + 1].value = (totalVolume * 0.033814).toFixed(2) // (oz)
+      displayTotal[index * 2].value = totalVolume.toFixed(2);                 // Valeur en ml
+      displayTotal[index * 2 + 1].value = (totalVolume * 0.033814).toFixed(2) // Conversion en oz
     });
     console.log(total.value, knobPosition, totalPercent);
     updatePercentages();

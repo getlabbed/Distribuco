@@ -1,4 +1,6 @@
 // https://socket.io/docs/v4/
+// Code assisté par chatGPT
+
 var socket = io.connect('http://0.0.0.0:5000'); // Remplacer l'adresse IP par l'adresse du RPI
 
 socket.on('navigate', function(url) {
@@ -8,13 +10,12 @@ socket.on('navigate', function(url) {
   }
 });
 
-// Define variables to keep track of the selected box
 var selectedRow = 0;
 var selectedColumn = 0;
 var rows = document.querySelectorAll('.row');
 
-// Function to highlight the selected box
 function highlightSelectedBox() {
+  // Fonction qui permet de mettre de sélectionner la boisson choisie par l'utilisateur
   rows.forEach(function(row, rowIndex) {
     var boxes = row.querySelectorAll('.drink-tile-item');
     boxes.forEach(function(box, colIndex) {
@@ -27,7 +28,7 @@ function highlightSelectedBox() {
   });
 }
 
-// Listen for the 'keypad' event from the server
+//Attente de l'événement 'keypad' du serveur
 socket.on('keypad', function(data) {
 
   console.log('keypad event received: ' + data)
@@ -46,5 +47,5 @@ socket.on('keypad', function(data) {
   highlightSelectedBox();
 });
 
-// Highlight the first box when the page loads
+// Sélectionne la première boisson lors du chargement de la page
 highlightSelectedBox();

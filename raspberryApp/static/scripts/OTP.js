@@ -1,4 +1,5 @@
 //Code fait entièrement par chatGPT
+//
 
 const intervalDuration = 60;
 

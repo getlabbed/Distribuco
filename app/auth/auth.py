@@ -1,4 +1,5 @@
 """
+    Code qui permet d'authentifier un utilisateur via le système OAuth de Google
     Code copié et modifié d'ici:
     https://github.com/code-specialist/flask_google_login
 """
@@ -33,7 +34,7 @@ flow = Flow.from_client_secrets_file(
 def login_is_required(function):
     """
     Fonction qui permet de bloquer ou non l'exécution d'une fonction dépendamment 
-    Elle contient un wrapper qui permet d'étendre la fonctionnalité d'une autre fonction (dans ce cas-ci un fonction dans app.py)
+    Elle contient un wrapper qui permet d'étendre la fonctionnalité d'une autre fonction (dans ce cas-ci une fonction dans app.py)
     
     :param 0: fonction à bloquer
     :return: la fonction wrappée

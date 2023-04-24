@@ -1,6 +1,8 @@
+"""
+Code principal de l'application web de la machine Distribuco qui permet de gérer les requêtes et de les traiter
+"""
 from flask import render_template, request, redirect, Blueprint, jsonify
 import requests
-import json
 import pyotp
 from . import socketio
 from flask_socketio import emit
@@ -14,15 +16,16 @@ TOTP_SECRET = os.getenv("TOTP_SECRET") # Récupérer le secret TOPT
 raspberryApp_bp = Blueprint('app', __name__)
 
 def str_round(input):
+    """
+    Fonction qui permet de convertir une chaine de caractère en nombre entier arrondi,
+    puisque le formulaire envoie des nombres flottants dans des chaine de caractères
+    
+    :param: une chaine de caractère
+    :return: Le nombre entier arrondi
+    """
     float_input = float(input)
     output = round(float_input)
     return output
-
-@raspberryApp_bp.route('/rfid_socketio') # Communication SocketIO
-def rfid_socketio():
-    # Envoyer la valeur RFID
-    RFID = "123456"
-    return {'status': 'success', 'message': RFID}
 
 @raspberryApp_bp.route('/pumps', methods=['POST']) # Communication SocketIO
 def pumps():

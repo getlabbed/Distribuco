@@ -1,4 +1,5 @@
 // Code fait par chatGPT
+// Code qui permet d'afficher la valeur hexadécimale en fonction de la couleur sélectionnée
 
 function color_wrapper(){
     $('.color').colorPicker({
