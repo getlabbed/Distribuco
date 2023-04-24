@@ -1,0 +1,9 @@
+[
+  { "temp_card_id": "1234567894345853" },
+  {
+    "card_id": "1",
+    "drinks": [
+        {"name": "", "drink": {"volumeTotal": "25", "boisson_ml_1": "25", "boisson_ml_2": "25", "boisson_ml_3": "25", "boisson_ml_4": "25"}, "couleur": ""}, {"name": "", "drink": {"volumeTotal": "25", "boisson_ml_1": "25", "boisson_ml_2": "25", "boisson_ml_3": "25", "boisson_ml_4": "25"}, "couleur": ""}, {"name": "", "drink": {"volumeTotal": "25", "boisson_ml_1": "25", "boisson_ml_2": "25", "boisson_ml_3": "25", "boisson_ml_4": "25"}, "couleur": ""}, {"name": "", "drink": {"volumeTotal": "25", "boisson_ml_1": "25", "boisson_ml_2": "25", "boisson_ml_3": "25", "boisson_ml_4": "25"}, "couleur": ""}
+    ]
+  }
+]

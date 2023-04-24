@@ -5,6 +5,7 @@ app_bp = Blueprint('app', __name__)
 import pyotp
 from dotenv import load_dotenv
 import os
+from app.auth import auth_session
 
 load_dotenv() # Charger le fichier d'environnement
 
@@ -47,6 +48,45 @@ def admin_menu():
     return render_template('adminMenu.jinja', ingredients=ingredients)
 
 #DEV @login_is_required
+@app_bp.route('/delete_drink/<drink_index>', methods=['POST']) # Page sécurisée
+def deleteDrink(drink_index):
+    with open("storage/drinks.json", "r") as f:
+        drinks = json.load(f)
+
+    drinks.pop(int(drink_index))
+
+    with open("storage/drinks.json", "w") as f:
+        json.dump(drinks, f)
+
+    return redirect('/app') # retourner à la page principale
+
+# DAMN
+def get_json_drinks(card_id=None, google_id=None):
+    with open('storage/profiles.json') as f:
+        profiles = json.load(f)
+
+    for profile in profiles:
+        if card_id and 'card_id' in profile and profile['card_id'] == card_id:
+            return profile['drinks']
+        elif google_id and 'google_id' in profile and profile['google_id'] == google_id:
+            return profile['drinks']
+
+    return None
+
+#DEV @login_is_required
+@app_bp.route('/card_id/<card_id>', methods=['GET']) # Page sécurisée
+def storeCardId(card_id):
+    with open("storage/profiles.json", "r") as f:
+        profiles = json.load(f)
+
+    profiles[0]["temp_card_id"] = card_id
+    
+    with open("storage/profiles.json", "w") as f:
+        json.dump(profiles, f)
+
+    return "SUCESS"
+
+#DEV @login_is_required
 @app_bp.route('/verifyOTP', methods=['POST']) # Page sécurisée
 def verifyOTP():
     # Récupérer les numéros totp
@@ -69,18 +109,26 @@ def verifyOTP():
     totp_validation = totp.verify(user_totp)
 
     if totp_validation:
-        pass # Envoyer une requête socketIO pour réccupérer le numéro de carte RFID
+        with open("storage/profiles.json", "r") as f:
+            profiles = json.load(f)
+
+        new_profile = {
+            "card_id": profiles[0]["temp_card_id"],
+            "email": auth_session["google_id"]
+        }
+        profiles.append(new_profile)
+
+        with open("storage/profiles.json", "w") as f:
+            json.dump(profiles, f)
     else:
         print("Erreur de validation OTP")
 
     return redirect('/app') # retourner à la page principale
 
 #DEV @login_is_required
-@app_bp.route('/get-drinks')
-def get_drinks():
-    with open("storage/drinks.json", "r") as f:
-        drinks = json.load(f)
-    return(drinks)
+@app_bp.route('/get-drinks/<card_id>', methods=['GET'])
+def get_drinks(card_id):
+    return(get_json_drinks(card_id, None))
 
 #DEV @login_is_required
 @app_bp.route('/ajout')
@@ -140,5 +188,5 @@ def creation_boisson():
     with open('storage/drinks.json', 'w') as f:
         json.dump(data, f)
 
-    return redirect('/') # retourner à la page principale
+    return redirect('/app') # retour à l'application
 

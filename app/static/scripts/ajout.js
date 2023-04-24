@@ -58,4 +58,5 @@ function ajout() {
 document.addEventListener('DOMContentLoaded', ajout);     // Exécuter le code quand la page est chargée
 
 // Événements Swup https://swup.js.org/events
-document.addEventListener('swup:contentReplaced', ajout); // Exécuter le code quand la page est chargée par Swup 
+document.addEventListener('swup:contentReplaced', ajout); // Exécuter le code quand la page est chargée par Swup
+

@@ -1,0 +1,40 @@
+Début du programme RFID
+
+Définition des constantes
+
+Définition du client socketIO
+
+Initialisation du Raspberry Pi :
+
+    Supprimer les avertissements
+    Utiliser le mode BCM
+    Configurer la broche de l'activation en sortie
+
+Activation de la lecture RFID :
+
+    Mettre la broche d'activation à l'état bas
+
+Initialisation des paramètres sériel
+
+Connexion au serveur socketIO
+
+Tant que Vrai :
+
+    Lire 12 bits du port série
+    Valider le code RFID :
+        Le code doit être de 12 caractères
+        Le premier caractère doit être un caractère de saut de ligne
+        Le dernier caractère doit être un caractère de retour chariot
+        Si le code est valide, retourner le code sans les caractères indésirables
+        Sinon, retourner Faux
+    Si le code est valide :
+        Émettre un événement socketIO avec le code RFID
+    Attendre 2 secondes
+
+En cas d'erreur :
+    Afficher l'erreur
+    Mettre la broche d'activation à l'état haut
+
+Déconnexion du serveur socketIO
+
+Fin du programme RFID

@@ -11,6 +11,9 @@
       <div class="drink-tile-item">
           <p>{{ drink['name'] }}</p>
           <i class="fa-solid fa-whiskey-glass fa-8x" style="padding:15px; color:{{ drink.couleur }};"></i>
+          <form class="delete_drink_form" action="/delete_drink/{{ loop.index0 }}" method="POST">
+            <button class="delete_drink" type="submit">Supprimer</button>
+          </form>
       </div>
   {% endfor %}
   <div class="drink-tile-item">

@@ -25,6 +25,28 @@ header{
 .drink-tile-item:hover{
   border: 2px solid red;
 }
+.delete_drink {
+  background-color: rgba(255, 0, 0, 0.5); /* semi-transparent red */
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.delete_drink:hover {
+  background-color: rgba(255, 0, 0, 0.8); /* semi-transparent red */
+}
+.delete_drink_form .delete_drink{
+  display: none;
+}
+.drink-tile-item:hover .delete_drink_form .delete_drink{
+  display: inline-block;
+}
 ul {
   list-style-type: none;
   margin: 0;

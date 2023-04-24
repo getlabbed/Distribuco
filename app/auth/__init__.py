@@ -6,7 +6,9 @@ Il contient le code nécéssaire à l'authentification d'un utilisateur par une 
 from .auth import auth_bp as bp
 from .auth import login_is_required as lir
 from .auth import client_secrets_file as csf
+from .auth import session as sess
 
 auth_bp = bp
 login_is_required = lir
 client_secrets_file = csf
+auth_session = sess
