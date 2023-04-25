@@ -1,0 +1,39 @@
+PseudoCode Généré par ChatGPT
+
+Début du pseudocode
+
+Définir la fonction ajout
+Sélectionner tous les éléments 'slider', 'pourcentage', 'pourcentageForm', 'displayQty', 'displayTotal', 'slider-total'
+Définir la valeur maxVolume à 355
+Initialiser la variable totalVolume à 355
+
+Définir la fonction updatePercentages
+Initialiser la variable total à 0
+Pour chaque slider
+Ajouter la valeur du slider à la variable total
+
+rust
+Copy code
+Pour chaque slider avec l'index
+  Calculer le pourcentage
+  Sélectionner la barre correspondante
+  Appliquer le pourcentage à la barre
+  Mettre à jour le pourcentage dans le cercle
+  Mettre à jour le pourcentage dans le cercleForm
+  Calculer le volume
+  Mettre à jour les inputs de quantité de liquides (ml et oz)
+Pour chaque slider
+Ajouter un écouteur d'événement 'input' pour la fonction updatePercentages
+
+Ajouter un écouteur d'événement 'input' au slider total
+Mettre à jour totalVolume en fonction de la valeur du slider total
+Sélectionner la barre totale
+Calculer la position du bouton et le pourcentage total
+Appliquer le pourcentage total à la barre totale
+Mettre à jour les valeurs de displayTotal (ml et oz)
+Appeler la fonction updatePercentages
+
+Ajouter un écouteur d'événement 'DOMContentLoaded' pour la fonction ajout
+Ajouter un écouteur d'événement 'swup:contentReplaced' pour la fonction ajout
+
+Fin du pseudocode

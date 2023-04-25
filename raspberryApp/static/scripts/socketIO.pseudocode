@@ -1,0 +1,31 @@
+PseudoCode Généré par ChatGPT
+
+Début du pseudocode
+
+Définir la constante intervalDuration à 60
+
+Définir la fonction getOtpCode
+Faire une requête fetch pour récupérer le code OTP
+Retourner le code OTP
+
+Définir la fonction getTimeRemaining
+Calculer le temps restant pour l'intervalle
+Retourner le temps restant
+
+Définir la fonction updateOtpDisplay
+Récupérer le code OTP
+Mettre à jour l'affichage du code OTP
+
+Définir la fonction startCountdown
+Initialiser le compteur à getTimeRemaining
+Mettre à jour l'affichage du compteur
+Appeler la fonction updateOtpDisplay
+Lancer le compte à rebours avec un intervalle de 1000 ms
+Décrémenter le compteur
+Si le compteur est inférieur à 0
+Réinitialiser le compteur et mettre à jour l'affichage du code OTP
+Mettre à jour l'affichage du compteur
+
+Appeler la fonction startCountdown
+
+Fin du pseudocode

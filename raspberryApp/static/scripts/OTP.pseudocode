@@ -1,0 +1,31 @@
+PseudoCode Généré par ChatGPT
+
+Début du pseudocode
+
+Initialiser la connexion socket
+Ajouter un écouteur d'événement 'navigate' pour la fonction de redirection
+Initialiser selectedRow, selectedColumn et sélectionner toutes les lignes
+
+Définir la fonction highlightSelectedBox
+Pour chaque rangée et son index
+Sélectionner tous les éléments 'drink-tile-item'
+Pour chaque boîte et son index
+Si l'index de la rangée et de la colonne correspond à selectedRow et selectedColumn
+Ajouter la classe 'selected'
+Sinon
+Retirer la classe 'selected'
+
+Ajouter un écouteur d'événement 'keypad' pour la fonction de gestion du clavier
+Si la donnée est '1', '2' ou '3'
+Mettre à jour selectedColumn
+Sinon si la donnée est 'UP'
+Mettre à jour selectedRow (décrémenter)
+Sinon si la donnée est 'DWN'
+Mettre à jour selectedRow (incrémenter)
+Sinon si la donnée est 'NTR'
+Soumettre le formulaire sélectionné
+Appeler la fonction highlightSelectedBox
+
+Sélectionner la première boisson lors du chargement de la page
+
+Fin du pseudocode

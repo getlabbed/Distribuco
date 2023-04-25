@@ -1,0 +1,26 @@
+PseudoCode Généré par ChatGPT
+
+Début du pseudocode
+
+Définir la fonction clickEvent
+Si la longueur de la valeur de l'élément 'first' est non nulle
+Si 'last' est égal à 'soumettre'
+Soumettre le formulaire
+Sinon
+Mettre le focus sur l'élément avec l'ID 'last'
+
+Définir la fonction checkEmpty
+Si la longueur de la valeur de l'élément 'current' est nulle et que la touche appuyée est 'Backspace'
+Mettre le focus sur l'élément avec l'ID 'previous'
+
+Définir la fonction validateNumericInput
+Remplacer la valeur de l'élément 'input' par une chaîne de caractères contenant uniquement des chiffres
+
+Ajouter un écouteur d'événement 'DOMContentLoaded'
+Définir la fonction de chargement de la fenêtre
+Mettre le focus sur l'élément avec l'ID 'totp1'
+
+Ajouter un écouteur d'événement 'swup:contentReplaced'
+Mettre le focus sur l'élément avec l'ID 'totp1'
+
+Fin du pseudocode

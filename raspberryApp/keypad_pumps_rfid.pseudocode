@@ -1,0 +1,58 @@
+PseudoCode Généré par ChatGPT
+
+Début du pseudocode
+
+Initialisation
+  Importer les bibliothèques nécessaires
+  Initialiser les variables et les configurations
+  Créer un client socketIO
+  Initialiser les broches GPIO et le port série
+
+Définir les fonctions
+  Fonction pour valider un code RFID
+    Comparer le code avec une liste de codes valides
+    Retourner vrai si le code est valide, sinon faux
+  Fonction pour initialiser les broches GPIO
+    Configurer les broches pour les pompes et les capteurs de pression
+    Configurer les broches pour le clavier et le capteur RFID
+  Fonction pour démarrer et arrêter une pompe
+    Prendre en paramètre l'identifiant de la pompe et l'état (activer/désactiver)
+    Activer ou désactiver la pompe en fonction de l'état
+  Fonction pour vérifier si le capteur de pression est déclenché
+    Lire l'état de la broche du capteur de pression
+    Retourner vrai si le capteur est déclenché, sinon faux
+  Fonction pour pomper un liquide
+    Prendre en paramètre la durée de pompage et l'identifiant de la pompe
+    Démarrer la pompe
+    Attendre pendant la durée de pompage
+    Arrêter la pompe
+  Fonction pour gérer le pompage des liquides dans un thread
+    Créer un nouveau thread pour chaque pompe
+    Démarrer le thread pour pomper le liquide
+Créer un gestionnaire d'événements pour l'événement 'start_pump' du serveur socketIO
+    Lire les paramètres de l'événement (durée et identifiant de la pompe)
+    Gérer le pompage des liquides dans un thread
+
+Fonction principale
+  Tant que non connecté
+    Essayer de se connecter au serveur socketIO
+    En cas d'erreur, attendre 5 secondes et réessayer
+
+  Initialiser les broches du clavier et le clavier
+
+  Répéter
+    Si le capteur RFID est activé
+      Lire le code RFID du port série
+      Valider le code RFID
+      Si le code RFID est valide
+        Envoyer le code RFID au serveur via socketIO
+        Activer le clavier et désactiver le capteur RFID
+
+    Si le clavier est activé
+      Lire les touches du clavier
+      Envoyer les touches au serveur via socketIO
+
+  Jusqu'à (une interruption ou une erreur)
+    En cas d'erreur, désactiver le capteur RFID et nettoyer les broches GPIO
+
+Fin du pseudocode
